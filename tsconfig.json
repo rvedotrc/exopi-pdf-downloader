@@ -5,9 +5,7 @@
     "module": "nodenext",
     "target": "esnext",
     "moduleResolution": "nodenext",
-    "types": [
-      "node"
-    ],
+    "types": ["node"],
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
@@ -22,8 +20,5 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
-  "exclude": [
-    "dist",
-    "**/node_modules"
-  ]
+  "exclude": ["dist", "**/node_modules"]
 }

@@ -1,1 +1,26 @@
-{ "name": "exopi-pdf-downloader", "version": "1.0.0", "description": "", "main": "index.js", "scripts": { "test": "concurrently --group=true pnpm:test:\\*", "build": "tsc", "build:watch": "tsc --watch" }, "keywords": [], "author": "", "license": "ISC", "packageManager": "pnpm@10.33.0", "type": "module", "devDependencies": { "@types/node": "^25.5.0", "concurrently": "^9.2.1", "typescript": "^6.0.2" } }
+{
+  "name": "exopi-pdf-downloader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "concurrently --group=true pnpm:test:\\*",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "format": "prettier --write .",
+    "test:format": "prettier --check ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.33.0",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "concurrently": "^9.2.1",
+    "prettier": "^3.8.1",
+    "prettier-cli": "^0.1.0",
+    "prettier-plugin-packagejson": "^3.0.2",
+    "typescript": "^6.0.2"
+  }
+}
