@@ -1,14 +1,1 @@
-{
-  "name": "exopi-pdf-downloader",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.33.0",
-  "type": "module"
-}
+{ "name": "exopi-pdf-downloader", "version": "1.0.0", "description": "", "main": "index.js", "scripts": { "test": "concurrently --group=true pnpm:test:\\*" }, "keywords": [], "author": "", "license": "ISC", "packageManager": "pnpm@10.33.0", "type": "module", "devDependencies": { "concurrently": "^9.2.1" } }
