@@ -25,5 +25,8 @@
     "prettier-cli": "^0.1.0",
     "prettier-plugin-packagejson": "^3.0.2",
     "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "csv": "^6.5.1"
   }
 }
