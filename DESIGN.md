@@ -18,4 +18,10 @@ We don't actually read or write Excel files. We read CSV, and we write JSON.
 
 ## The output directory
 
-TODO
+The requirement:
+
+> Når PDF-filerne er downloadet, skal de sorteres i en mappe efter den BRnummerkode
+
+is rather vague. It is interpreted here as setting up a filesystem structure of the form `./var/by-id/1234567.pdf`, though it is far from clear that that is what was envisaged by the client.
+
+Even though using symlinks would have been significantly faster, the PDF files are copied (not linked) to construct the `by-id` directory. This is done because (a) it will work even where symlinks are not available, and (b) my copy of MacOS wants to open PDFs symlinks (not files) using "TextEdit", which is not an appropriate choice.

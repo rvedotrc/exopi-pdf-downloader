@@ -10,7 +10,7 @@ pnpm install
 pnpm build
 ```
 
-If you're not using `asdf` then this will probably also be fine:
+If you're not using `asdf` then, this will probably work just fine:
 
 - install a modern version of `node`
 - `npm install`
@@ -28,9 +28,13 @@ pnpm start input.csv ./var
 
 (or use `npm` instead of `pnpm`).
 
-The results are cached under `./var/hash`. A detailed result set is written to `./var/all-results.json`.
+The results are cached under `./var/hash/`. A detailed result set is written to `./var/all-results.json`.
 
-TODO, write the files index by item ID.
+The results are indexed by id under `./var/by-id/`.
+
+## Resetting
+
+To force a re-download of everything, either remove your chosen output directory (e.g. `./var`), or nominate a new output directory.
 
 ## Further reading
 

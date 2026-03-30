@@ -4,6 +4,7 @@ import writeFile from "write-file-atomic";
 
 import { createCache } from "./downloaderCache.js";
 import { createEngine, type ItemResult } from "./engine.js";
+import indexById from "./indexById.js";
 import { loadItems } from "./items.js";
 import { makePromiseLimiter } from "./promiseLimiter.js";
 import { createUrlFetcher } from "./urlFetcher.js";
@@ -27,6 +28,8 @@ const run = async (specCSVFile: string, outputDirectory: string) => {
       limiter.submit(() => engine.tryItem(item), `${item.id} ${item.url}`),
     ),
   );
+
+  await indexById(allResults, outputDirectory);
 
   const jsonText = JSON.stringify(allResults);
   await writeFile(
