@@ -1,11 +1,13 @@
-import { protoSafeParse, type JSONValue } from "@blaahaj/json";
-import { remapErrno } from "@blaahaj/remap-errno";
-import { createWriteStream, read } from "node:fs";
+import { createWriteStream } from "node:fs";
 import { mkdir, readFile, stat } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { pipeline } from "node:stream/promises";
+
+import { protoSafeParse } from "@blaahaj/json";
+import { remapErrno } from "@blaahaj/remap-errno";
 import writeFile from "write-file-atomic";
-import { ensureError } from "./fpftw.js";
+
+import { ensureError } from "./fp.js";
 
 export type CachedHead = {
   readonly url: string;

@@ -1,4 +1,3 @@
-import { errnoOf } from "@blaahaj/remap-errno";
 import type { CachedHead, DownloaderCache } from "./downloaderCache.js";
 import type { UrlResult } from "./engine.js";
 import type { URLFetcher } from "./urlFetcher.js";

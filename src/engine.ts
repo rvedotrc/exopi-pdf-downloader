@@ -38,7 +38,7 @@ export const createEngine = (
       return promise;
     }
 
-    promise = tryUrl(url)!;
+    promise = tryUrl(url);
     tryUrlCache.set(url, promise);
     return promise;
   };

@@ -1,6 +1,7 @@
-import * as csv from "csv/sync";
 import assert from "node:assert";
 import { readFile } from "node:fs/promises";
+
+import * as csv from "csv/sync";
 
 export type Item = {
   readonly id: string;
@@ -13,7 +14,7 @@ const parseRow = (row: readonly string[]): Item => {
 
   assert(typeof id === "string");
   assert(typeof url === "string");
-  assert(typeof altUrl == "string" || altUrl === undefined);
+  assert(typeof altUrl == "string" || (altUrl as unknown) === undefined);
   assert(more === undefined);
 
   return {
