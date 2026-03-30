@@ -6,7 +6,9 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
+    "example": "node --enable-source-maps ./dist/src/index.js ../ruby/data.csv ./all-results.json ./var",
     "format": "prettier --write .",
+    "start": "node --enable-source-maps ./dist/src/index.js \"$@\"",
     "test": "concurrently --group=true pnpm:test:\\*",
     "test:format": "prettier --check .",
     "test:package-json": "npmPkgJsonLint ."
@@ -27,6 +29,11 @@
     "typescript": "^6.0.2"
   },
   "dependencies": {
-    "csv": "^6.5.1"
+    "@blaahaj/json": "^1.0.1",
+    "@blaahaj/remap-errno": "^1.0.1",
+    "@types/write-file-atomic": "^4.0.3",
+    "axios": "^1.13.6",
+    "csv": "^6.5.1",
+    "write-file-atomic": "^7.0.1"
   }
 }
