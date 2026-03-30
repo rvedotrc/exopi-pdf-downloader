@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "example": "node --enable-source-maps ./dist/src/index.js ../ruby/data.csv ./all-results.json ./var",
+    "example": "node --enable-source-maps ./dist/src/index.js ./input.csv ./var",
     "format": "prettier --write .",
     "start": "node --enable-source-maps ./dist/src/index.js \"$@\"",
     "test": "concurrently --group=true pnpm:test:\\*",
