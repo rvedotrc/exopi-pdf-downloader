@@ -2,6 +2,7 @@ import { join } from "node:path";
 
 import writeFile from "write-file-atomic";
 
+import cachedOrRequest from "./cachedOrRequest.js";
 import { createCache } from "./downloaderCache.js";
 import { createEngine, type ItemResult } from "./engine.js";
 import indexById from "./indexById.js";
@@ -15,7 +16,7 @@ const run = async (specCSVFile: string, outputDirectory: string) => {
   const items = await loadItems(specCSVFile);
   const cache = createCache(outputDirectory);
   const urlFetcher = createUrlFetcher();
-  const engine = createEngine(urlFetcher, cache);
+  const engine = createEngine(urlFetcher, cache, cachedOrRequest);
 
   const limiter = makePromiseLimiter<ItemResult>(
     CONCURRENCY,
@@ -55,12 +56,4 @@ const run = async (specCSVFile: string, outputDirectory: string) => {
   }
 };
 
-const [specCSVFile, outputDirectory] = process.argv.slice(2) as [
-  string,
-  string,
-];
-
-run(specCSVFile, outputDirectory).catch((error: unknown) => {
-  console.error(error);
-  process.exit(1);
-});
+export default run;

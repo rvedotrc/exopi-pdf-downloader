@@ -1,6 +1,7 @@
 import { createWriteStream } from "node:fs";
 import { mkdir, readFile, stat } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
+import type { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
 
 import { protoSafeParse } from "@blaahaj/json";
@@ -56,7 +57,7 @@ export const createCache = (baseDir: string, logger = console) => {
     } as const;
   };
 
-  const saveBody = async (readable: NodeJS.ReadableStream, hash: string) => {
+  const saveBody = async (readable: Readable, hash: string) => {
     const path = cachedBodyPath(hash);
     logger.debug("write", path);
     await mkdir(dirname(path), { recursive: true });
@@ -64,7 +65,7 @@ export const createCache = (baseDir: string, logger = console) => {
     // We can hit an error here, e.g. if the response that we're streaming from times out
     const error = await pipeline(readable, createWriteStream(path)).then(
       () => null,
-      (error: unknown) => ensureError(error),
+      ensureError,
     );
 
     if (error) {

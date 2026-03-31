@@ -3,7 +3,6 @@ import simpleImportSort from "eslint-plugin-simple-import-sort";
 import tseslint from "typescript-eslint";
 
 export default defineConfig([
-  tseslint.configs.strictTypeChecked,
   {
     languageOptions: {
       parserOptions: {
@@ -13,6 +12,17 @@ export default defineConfig([
       },
     },
   },
+
+  tseslint.configs.strictTypeChecked,
+
+  {
+    plugins: { "simple-import-sort": simpleImportSort },
+    rules: {
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+    },
+  },
+
   {
     rules: {
       // These rules mostly seem good at hiding the real cause of
@@ -29,13 +39,7 @@ export default defineConfig([
     },
   },
 
-  // tseslint.configs.stylistic,
-  // // { plugins: { "simple-import-sort": simpleImportSort } },
-
   {
-    plugins: {
-      "simple-import-sort": simpleImportSort,
-    },
     rules: {
       "@typescript-eslint/no-unused-vars": [
         "error",
@@ -45,8 +49,6 @@ export default defineConfig([
         },
       ],
       "@typescript-eslint/no-non-null-assertion": ["warn"],
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
       "@typescript-eslint/no-floating-promises": "error",
       "@typescript-eslint/restrict-template-expressions": [
         "error",
@@ -54,7 +56,8 @@ export default defineConfig([
           allowNumber: true,
         },
       ],
+      "@typescript-eslint/no-shadow": "error",
     },
   },
-  globalIgnores(["dist", "junk"]),
+  globalIgnores(["dist"]),
 ]);

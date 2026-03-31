@@ -14,7 +14,7 @@ const parseRow = (row: readonly string[]): Item => {
 
   assert(typeof id === "string");
   assert(typeof url === "string");
-  assert(typeof altUrl == "string" || (altUrl as unknown) === undefined);
+  assert(typeof altUrl == "string");
   assert(more === undefined);
 
   return {

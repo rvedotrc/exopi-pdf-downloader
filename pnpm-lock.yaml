@@ -30,6 +30,9 @@ importers:
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.1.0(jiti@2.6.1))
+      '@types/mock-fs':
+        specifier: ^4.13.4
+        version: 4.13.4
       '@types/node':
         specifier: ^25.5.0
         version: 25.5.0
@@ -45,6 +48,9 @@ importers:
       jiti:
         specifier: ^2.6.1
         version: 2.6.1
+      mock-fs:
+        specifier: ^5.5.0
+        version: 5.5.0
       npm-package-json-lint:
         specifier: ^9.1.0
         version: 9.1.0(typescript@5.9.3)
@@ -161,6 +167,9 @@ packages:
 
   '@types/minimist@1.2.5':
     resolution: {integrity: sha512-hov8bUuiLiyFPGyFPE1lwWhmzYbirOXQNNo40+y3zow8aFVTeyn3VWL0VFFfdNddA8S4Vf0Tc062rzyNr7Paag==}
+
+  '@types/mock-fs@4.13.4':
+    resolution: {integrity: sha512-mXmM0o6lULPI8z3XNnQCpL0BGxPwx1Ul1wXYEPBGl4efShyxW2Rln0JOPEWGyZaYZMM6OVXM/15zUuFMY52ljg==}
 
   '@types/node@25.5.0':
     resolution: {integrity: sha512-jp2P3tQMSxWugkCUKLRPVUpGaL5MVFwF8RDuSRztfwgN1wmqJeMSbKlnEtQqU8UrhTmzEmZdu2I6v2dpp7XIxw==}
@@ -756,6 +765,10 @@ packages:
     resolution: {integrity: sha512-Q4r8ghd80yhO/0j1O3B2BjweX3fiHg9cdOwjJd2J76Q135c+NDxGCqdYKQ1SKBuFfgWbAUzBfvYjPUEeNgqN1A==}
     engines: {node: '>= 6'}
 
+  mock-fs@5.5.0:
+    resolution: {integrity: sha512-d/P1M/RacgM3dB0sJ8rjeRNXxtapkPCUnMGmIN0ixJ16F/E4GUZCvWcSGfWGz8eaXYvn1s9baUwNjI4LOPEjiA==}
+    engines: {node: '>=12.0.0'}
+
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
@@ -1183,6 +1196,10 @@ snapshots:
   '@types/json-schema@7.0.15': {}
 
   '@types/minimist@1.2.5': {}
+
+  '@types/mock-fs@4.13.4':
+    dependencies:
+      '@types/node': 25.5.0
 
   '@types/node@25.5.0':
     dependencies:
@@ -1785,6 +1802,8 @@ snapshots:
       arrify: 1.0.1
       is-plain-obj: 1.1.0
       kind-of: 6.0.3
+
+  mock-fs@5.5.0: {}
 
   ms@2.1.3: {}
 

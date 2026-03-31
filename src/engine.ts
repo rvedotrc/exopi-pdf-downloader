@@ -1,4 +1,3 @@
-import cachedOrRequest from "./cachedOrRequest.js";
 import type { CachedHead, DownloaderCache } from "./downloaderCache.js";
 import type { Item } from "./items.js";
 import type { URLFetcher } from "./urlFetcher.js";
@@ -23,10 +22,11 @@ export type ItemResult = {
 export const createEngine = (
   urlFetcher: URLFetcher,
   cache: DownloaderCache,
+  cachedOrRequest: (typeof import("./cachedOrRequest.js"))["default"],
   logger = console,
 ) => {
   const tryUrl = async (url: string): Promise<UrlResult> => {
-    return await cachedOrRequest(url, urlFetcher, cache);
+    return await cachedOrRequest(url, urlFetcher, cache, logger);
   };
 
   const tryUrlCache = new Map<string, ReturnType<typeof tryUrl>>();

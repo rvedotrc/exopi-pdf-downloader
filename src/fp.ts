@@ -1,6 +1,6 @@
-// export const doThrow = (e: Error): never => {
-//   throw e;
-// };
+export const doThrow = (e: Error): never => {
+  throw e;
+};
 
 export const ensureError = (e: unknown): Error => {
   if (e instanceof Error) return e;

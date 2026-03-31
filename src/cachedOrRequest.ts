@@ -1,3 +1,5 @@
+import { errnoOf } from "@blaahaj/remap-errno";
+
 import type { CachedHead, DownloaderCache } from "./downloaderCache.js";
 import type { UrlResult } from "./engine.js";
 import type { URLFetcher } from "./urlFetcher.js";
@@ -60,7 +62,11 @@ export default async (
         url,
         status: 500,
         headers: {
-          "x-error-while-streaming": cachedBodyOrError.error.name,
+          "x-streaming-rejection": [
+            cachedBodyOrError.error.name,
+            cachedBodyOrError.error.message,
+            errnoOf(cachedBodyOrError.error) ?? "-",
+          ],
         },
       };
     } else {

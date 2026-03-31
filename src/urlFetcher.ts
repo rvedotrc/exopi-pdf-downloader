@@ -7,8 +7,8 @@ const MAX_RESPONSE_CONTENT_LENGTH = 50 << 20;
 const CONNECT_TIMEOUT = 5000;
 const REQUEST_TIMEOUT = 30000;
 
-export const createUrlFetcher = () => {
-  const axios = new Axios({
+export const createUrlFetcher = (axios?: Axios) => {
+  axios ||= new Axios({
     headers: {
       "User-Agent": "Exopi Consulting pdf-downloader",
     },
@@ -38,9 +38,7 @@ export const createUrlFetcher = () => {
             status: 500,
             statusText: `${e.message} (synthesised)`,
             headers: {
-              "x-synthesised-error-name": e.name,
-              "x-synthesised-error-message": e.message,
-              "x-synthesised-error-errno": errnoOf(e),
+              "x-request-rejection": [e.name, e.message, errnoOf(e) ?? "-"],
             },
             data: null,
             config: null as never,
